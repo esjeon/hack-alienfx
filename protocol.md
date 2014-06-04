@@ -39,6 +39,21 @@ URB Setup
  - wLength = 9 (Constant)
 
 
+Areas
+-----
+
+ * Alienware 14
+   - 00:01 : Keyboard - Left
+   - 00:02 : Keyboard - Mid-Left
+   - 00:04 : Keyboard - Mid-Right
+   - 00:08 : Keyboard - Right
+   - 00:60 : Bottom
+   - 00:80 : Alien Logo
+   - 01:00 : ALIENWARE Text
+   - 02:00 : Touchpad
+   - 48:00 : Status LED
+
+
 Commands
 --------
 
