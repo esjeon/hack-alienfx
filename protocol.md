@@ -8,16 +8,16 @@ Terminology
  - **Device**:
     An AlienFX USB device.
 
- - **Area**:
+ - **Zone**:
     A (or a set of) LED which share a sequence.
 
  - **Color**:
 
  - **Sequence**:
-    An ordered list of colors, morphs, and pulses of an area.
+    An ordered list of colors, morphs, and pulses of an zone.
 
  - **Theme**:
-    A set of sequences and corresponding areas.
+    A set of sequences and corresponding zones.
 
 
 Device Configuration
@@ -73,10 +73,10 @@ Commands
 
 ### 0x01: Morph ###
 
-    02:01:nn:00:aa:aa:rg:bR:GB
+    02:01:nn:00:zz:zz:rg:bR:GB
 
     n : Sequence ID
-    a : Area
+    z : Zone
     r : Red 1
     g : Green 1
     b : Blue 1
@@ -89,10 +89,10 @@ Commands
 
 ### 0x02: Pulse ###
 
-    02:02:nn:00:aa:aa:rg:b0:
+    02:02:nn:00:zz:zz:rg:b0:
 
     n : Sequence ID
-    a : Area
+    z : Zone
     r : Red
     g : Green
     b : Blue
@@ -100,10 +100,10 @@ Commands
 
 ### 0x03: Color ###
 
-    02:03:nn:00:aa:aa:rg:b0:
+    02:03:nn:00:zz:zz:rg:b0:
     
     n : Sequence ID
-    a : Area
+    z : Zone
     r : Red
     g : Green
     b : Blue
@@ -184,7 +184,7 @@ Commands
 Contants
 --------
 
-### Area
+### Zones
 
  - 00:01 : Keyboard - Left
  - 00:02 : Keyboard - Mid-Left
