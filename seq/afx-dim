@@ -1,0 +1,8 @@
+# Dim Lighting Zones - Enable
+02:1c:32:01
+# Dim Lighting Zones - Disable
+02:1c:64:01
+# Dim Lighting Zones in Battery Mode Only - Enable
+02:1c:32:00
+# Dim Lighting Zones in Battery Mode Only - Disable
+02:1c:64:00
