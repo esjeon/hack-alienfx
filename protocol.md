@@ -11,10 +11,15 @@ Terminology
  - **Zone**:
     A (or a set of) LED which share a sequence.
 
+ - **Action**:
+    The lighting behavior for zones. This includes Morph, Pulse, and Color.
+
+ - **Morph**:
+ - **Pulse**:
  - **Color**:
 
  - **Sequence**:
-    An ordered list of colors, morphs, and pulses of an zone.
+    An ordered list of actions.
 
  - **Theme**:
     A set of sequences and corresponding zones.
@@ -60,7 +65,7 @@ URB Setup
 
 ### (Unkown)
 
- - AFAIK, it is safe to ignore this packet.
+ - AFAIK, not sending this packet does no harm.
  - bmRequestType = 0x21
  - bRequest = 10
  - wValue = 0 (Constant)
@@ -151,12 +156,11 @@ Commands
     
     s : slot
 
- - Save the following command to the specified slot.
- - Must be followed by a color-related commands
-   (Morph, Pulse, Color, and Loop)
+ - Save the next command to the specified slot.
+ - Must be followed by an Action or Loop
  - (TODO: better name?)
 
-### 0x09: Save
+### 0x09: Write Slots
 
     02:09:  :  :  :  :  :  :
 
@@ -168,7 +172,7 @@ Commands
 
 ### 0x0E: Tempo
 
-    02:0e:tt:tt:  :  :  :  :
+    02:0E:tt:tt:  :  :  :  :
 
     t: Tempo
 
@@ -176,9 +180,20 @@ Commands
  - Lower is faster
 
 
+### 0x1C: Dim
+
+    02:1C:oo:bb:  :  :  :  :
+
+    o: 32 (Enable)
+       64 (Disable)
+    b: 01 (Always)
+       00 (in Battery Mode Only)
+
+
 ### 0x1D: (Unknown)
 
-    02:1d:03:  :  :  :  :  :
+    02:1d:03:  :  :  :  :  :   (on apply)
+    02:1d:81:  :  :  :  :  :   (on go-dark)
 
 
 Contants
@@ -201,6 +216,7 @@ Contants
 
 ### Reset
 
+ - (TODO: tbh, this section, entirely)
  - 00: reset keyboard
  - 01: reset keyboard
  - 02: (TODO)
@@ -209,16 +225,16 @@ Contants
  - 04: (TODO)
 
 
-### Save Slot
+### Slots
 
- - 01: Initial state
- - 02: On stan-by
+ - 01: Initial State
+ - 02: Plugged in - Sleep
    + Only the power-button works in this mode?
- - 05: (TODO)
- - 06: (TODO)
- - 07: (TODO)
- - 08: (TODO)
- - 09: (TODO)
+ - 05: Plugged in - Normal
+ - 06: Plugged in - Charging
+ - 07: On Battery - Sleep
+ - 08: On Battery - Normal
+ - 09: On Battery - Low
  - (TODO: better title)
 
 
